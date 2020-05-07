@@ -1,15 +1,29 @@
-import React, { Fragment, useState, useEffect } from 'react';
+// import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState } from 'react';
 import Formulario from './components/Formulario';
 import Cita from './components/Cita';
 
 function App() {
+  // almacenamiento en localStorage
+  // let citasIniciales = JSON.parse(localStorage.getItem('citas'));
+  // if (!citasIniciales) {
+  //   citasIniciales = [];
+  // }
+
   // array de citas
+  // const [citas, guardarCitas] = useState(citasIniciales);
   const [citas, guardarCitas] = useState([]);
 
   // useEffect realiza operaciones cada vez q el satet se modifica
-  useEffect(() => { //useEffect siempre va con un callback, es similar a componentDidMount y DidUpdate
-    console.log('listo');
-  }, [citas]); // el array es obligatorio sino se cicla el estado
+  // useEffect(() => {
+  //   let citasIniciales = JSON.parse(localStorage.getItem('citas'));
+
+  //   if (citasIniciales) {
+  //     localStorage.setItem('citas', JSON.stringify(citas));
+  //   } else {
+  //     localStorage.setItem('citas', JSON.stringify([]));
+  //   }
+  // }, [citas]);
 
   // contenedor de citas antiguas y actuales
   const crearCita = (cita) => {
