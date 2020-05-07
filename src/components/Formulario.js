@@ -12,18 +12,30 @@ const Formulario = () => {
   // captura de los input
   const actualizarState = (e) => {
     actualizarCita({
-      ...cita, //spread operator guarda una copia del state xq no se reescriban los valores
-      [e.target.name]: e.target.value, //destruturing array- vincula cada propiedad con su valor
+      ...cita, //spread operator
+      [e.target.name]: e.target.value, //destruturing array
     });
   };
 
   // extraer los valores
   const { mascota, propietario, fecha, hora, sintomas } = cita;
 
+  // envio del form
+  const submitCita = (e) => {
+    e.preventDefault(); // no envia los valores por get
+    // validaciones
+
+    //asignar id-key
+
+    // crear la cita
+
+    // reiniciar el form
+  };
+
   return (
     <Fragment>
       <h2>Crear cita</h2>
-      <form action="">
+      <form action="" onSubmit={submitCita}>
         <label htmlFor="">Nombre Mascota</label>
         <input
           className="u-full-width"
