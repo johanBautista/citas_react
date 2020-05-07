@@ -6,12 +6,12 @@ const Formulario = ({ crearCita }) => {
     mascota: '',
     propietario: '',
     fecha: '',
-    hora: '', // este state inicia como un objeto
+    hora: '',
     sintomas: '',
   });
 
   // state de error-validaciones
-  const [error, actualizarError] = useState(false); // este state inicia como un boolean-false
+  const [error, actualizarError] = useState(false);
 
   // captura de los input
   const actualizarState = (e) => {
@@ -41,7 +41,7 @@ const Formulario = ({ crearCita }) => {
     // eliminar mensaje de error
     actualizarError(false);
 
-    //asignar id-key 
+    //asignar id-key
     cita.id = uuidv4();
     console.log(cita);
 
@@ -49,6 +49,13 @@ const Formulario = ({ crearCita }) => {
     crearCita(cita);
 
     // reiniciar el form
+    actualizarCita({
+      mascota: '',
+      propietario: '',
+      fecha: '',
+      hora: '',
+      sintomas: '',
+    });
   };
 
   return (
