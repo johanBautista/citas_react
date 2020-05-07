@@ -18,10 +18,8 @@ function App() {
     guardarCitas(nuevasCitas);
   };
 
-  /**
-   1. func eliminar cita
-   2. evento onClick y eliminar cita.id
-   */
+  // mensaje condicional
+  const titulo = citas.length === 0 ? 'No hay citas' : 'Administra tus citas';
 
   return (
     <Fragment>
@@ -32,7 +30,8 @@ function App() {
             <Formulario crearCita={crearCita} />
           </div>
           <div className="one-half column">
-            <h2>Administra tus citas</h2>
+            <h2>{titulo}</h2>
+
             {citas.map((cita) => (
               <Cita cita={cita} eliminarCita={eliminarCita} key={cita.id} />
             ))}
