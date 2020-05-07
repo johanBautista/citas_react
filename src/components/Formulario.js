@@ -5,9 +5,12 @@ const Formulario = () => {
     mascota: '',
     propietario: '',
     fecha: '',
-    hora: '',
+    hora: '', // este state inicia como un objeto
     sintomas: '',
   });
+
+  // state de error-validaciones
+  const [error, actualizarError] = useState(false); // este state inicia como un boolean-false
 
   // captura de los input
   const actualizarState = (e) => {
@@ -22,8 +25,18 @@ const Formulario = () => {
 
   // envio del form
   const submitCita = (e) => {
-    e.preventDefault(); // no envia los valores por get
+    e.preventDefault();
     // validaciones
+    if (
+      mascota.trim() === '' ||
+      propietario.trim() === '' ||
+      fecha.trim() === '' ||
+      hora.trim() === '' ||
+      sintomas.trim() === ''
+    ) {
+      actualizarError(true);
+      return;
+    }
 
     //asignar id-key
 
@@ -35,6 +48,9 @@ const Formulario = () => {
   return (
     <Fragment>
       <h2>Crear cita</h2>
+      {error ? (
+        <p className="alerta-error">Todos los Camps son obligatorios</p>
+      ) : null}
       <form action="" onSubmit={submitCita}>
         <label htmlFor="">Nombre Mascota</label>
         <input
