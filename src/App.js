@@ -11,11 +11,16 @@ function App() {
     console.log(cita);
     guardarCitas([...citas, cita]);
   };
+
+  // func eliminar cita
+  const eliminarCita = (id) => {
+    const nuevasCitas = citas.filter((cita) => cita.id !== id);
+    guardarCitas(nuevasCitas);
+  };
+
   /**
-  1. mapear el array de citas y pasar el componente cita
-  2. pasar key y obj cita
-  3. en comp. Cita destructuring de cita y sus propiedades para imprimir el obj
-  4. boton de eliminar cita
+   1. func eliminar cita
+   2. evento onClick y eliminar cita.id
    */
 
   return (
@@ -28,8 +33,8 @@ function App() {
           </div>
           <div className="one-half column">
             <h2>Administra tus citas</h2>
-            {citas.map(cita =>(
-              <Cita  cita={cita} key={cita.id} />
+            {citas.map((cita) => (
+              <Cita cita={cita} eliminarCita={eliminarCita} key={cita.id} />
             ))}
           </div>
         </div>
