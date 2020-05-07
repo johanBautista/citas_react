@@ -41,7 +41,7 @@ const Formulario = ({ crearCita }) => {
     // eliminar mensaje de error
     actualizarError(false);
 
-    //asignar id-key
+    //asignar id-key 
     cita.id = uuidv4();
     console.log(cita);
 
