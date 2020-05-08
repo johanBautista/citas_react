@@ -52,7 +52,10 @@ function App() {
             <h2>{titulo}</h2>
 
             {citas.map((cita) => (
-              <Cita cita={cita} eliminarCita={eliminarCita} key={cita.id} />
+              <Cita 
+              cita={cita} 
+              eliminarCita={eliminarCita} 
+              key={cita.id} />
             ))}
           </div>
         </div>
